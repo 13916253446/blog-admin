@@ -1,0 +1,44 @@
+## 注意事项
+
+##### 1. postcss-viewport-units插件解析原本带有content属性样式的时候会报错
+
+
+```
+// 排除掉原本带有content属性的样式
+plugins: [
+    "postcss-viewport-units":{
+      /* 过滤原本带有content属性的元素 */
+      filterRule: (rule) => {          
+        return rule.selector.indexOf('::after') < 0 && rule.selector.indexOf(':after') < 0 && rule.selector.indexOf('::before') < 0 && rule.selector.indexOf(':before') < 0;
+      }
+    }
+]
+```
+
+##### 2. img标签设置宽高之后，postcss-viewport-units会添加content样式属性，在苹果手机上面img元素设置有content时，不会显示出图片
+
+```
+// 解决问题
+img { 
+  content: normal !important;
+}
+```
+
+
+**3. html-webpack-plugin导致报~~TypeError: Converting circular structure to JSON~~(循环引用错误)**
+
+
+```
+//  解决办法
+html-webpack-plugin 增加chunksSortMode配置并设置为none
+```
+
+**4. 多线程loader编译**
+
+采用happypack编译，由于当前版本的happypack没有跟上webpack的版本，所有需要安装beta版本(**5.0.0-beta.3**)
+版本更新了以后，请更换
+
+
+```
+npm install --save-dev happypack@next
+```

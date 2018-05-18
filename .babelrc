@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "env", {
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "last 2 versions"
+          ]
+        },
+        "useBuiltIns": true
+      }
+    ],
+    "stage-2"
+  ],
+  "plugins": [
+    "transform-runtime", "syntax-dynamic-import"    
+  ]
+}
