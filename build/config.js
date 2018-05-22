@@ -4,7 +4,7 @@ const loader = require("./loader");
 //  服务器配置
 let server = {
   host: '0.0.0.0',
-  port: 8808,
+  port: 8809,
   hot: true,
   overlay: {
     warnings: true,

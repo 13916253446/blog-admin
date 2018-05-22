@@ -5,3 +5,73 @@ body
   touch-action: manipulation
   -webkit-tap-highlight-color: transparent
   -webkit-font-smoothing: antialiased
+*
+  box-sizing: border-box
+  &:after
+  &:before
+    box-sizing: border-box
+
+
+.absolute-view
+  position: absolute
+  left 0
+  right 0
+  bottom: 0
+  top: 0
+  height 100%
+  width: 100%
+  overflow-x: hidden
+  overflow-y: auto
+  -webkit-overflow-scrolling: touch
+
+.flex
+  display flex
+.center-flex
+  display: flex
+  align-items: center
+  justify-content: center
+.center-flex-v
+  display: flex
+  align-items: center
+
+.bottom-flex-v
+  display: flex
+  align-items: flex-end
+
+.center-flex-h
+  display: flex
+  justify-content: center
+
+.flex-full
+  flex: 1
+.flex-wrap{
+  display flex
+  flex-wrap wrap
+}
+.column-flex
+  display: flex
+  flex-direction: column
+.column-flex-b{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.text-center
+  text-align: center
+.active-btn
+  &:active
+    opacity .6
+
+.bg-f
+  background-color: #FFF
+.bg-theme
+  background-color: theme-color
+
+
+.f-20
+  font-size: 20px
+.f-30
+  font-size: 30px
+
+.c-f
+  color: #FFF
