@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { post } from '@/tools/service/request.js';
+import { mapActions } from 'vuex';
 export default {
   name: 'Login',
   data() {
@@ -22,13 +22,17 @@ export default {
     };
   },
   methods: {
+    //  登录Action
+    ...mapActions({
+      loginAction: 'loginAction'
+    }),
     //  点击登录
     loginHandler() {
       let params = {
         userCode: this.userCode,
         password: this.password
       };
-      post('login', params)
+      this.loginAction(params)
         .then(res => {
           console.log(res);
         })
