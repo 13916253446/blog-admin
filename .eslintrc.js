@@ -17,6 +17,7 @@ module.exports = {
         SwitchCase: 1,
         flatTernaryExpressions: true
       }
-    ]     
+    ],
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'     
   }
 };

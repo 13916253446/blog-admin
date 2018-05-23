@@ -4,21 +4,38 @@
       <div class="f-30 c-f">博客管理后台</div>
       <div class="login-content bg-f">
         <input class="lg-iu" type="text" v-model="userCode" placeholder="请输入用户名">
-        <input class="lg-iu" type="password" v-model="pwd" placeholder="请输入密码">
-        <div class="login-btn c-f active-btn">login</div>
+        <input class="lg-iu" type="password" v-model="password" placeholder="请输入密码">
+        <div class="login-btn c-f active-btn" @click="loginHandler">login</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { post } from '@/tools/service/request.js';
 export default {
   name: 'Login',
   data() {
     return {
       userCode: '',
-      pwd: ''
+      password: ''
     };
+  },
+  methods: {
+    //  点击登录
+    loginHandler() {
+      let params = {
+        userCode: this.userCode,
+        password: this.password
+      };
+      post('login', params)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
   }
 };
 </script>
