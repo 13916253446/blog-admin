@@ -34,7 +34,9 @@ export default {
       };
       this.loginAction(params)
         .then(res => {
-          console.log(res);
+          if (res) {
+            this.$router.push({ path: '/' });
+          }
         })
         .catch(err => {
           console.error(err);

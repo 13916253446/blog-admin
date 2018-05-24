@@ -5,6 +5,14 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    name: 'home',
+    path: '/',
+    component: () => import('@/views/home/home.vue'),
+    meta: {
+      title: '首页'
+    }
+  },
+  {
     name: 'Login',
     path: '/login',
     component: () => import('@/views/login/login.vue'),

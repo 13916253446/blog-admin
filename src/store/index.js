@@ -23,7 +23,8 @@ const mutations = {
 const actions = {
   //  登录
   loginAction(context, params = {}) {
-    return post('login', params)
+    let promise = post('login', params);
+    promise
       .then(res => {
         console.log(res);
       })
@@ -31,6 +32,7 @@ const actions = {
         context.commit('setAdmin');
         throw new Error(err);
       });
+    return promise;
   }
 };
 
