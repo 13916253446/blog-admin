@@ -1,13 +1,21 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
+import Main from '@/views/main.vue';
 Vue.use(VueRouter);
 
 const routes = [
   {
-    name: 'home',
-    path: '/',
-    component: () => import('@/views/home/home.vue'),
+    name: 'main',
+    component: Main,
+    path: '/main',
+    children: [
+      {
+        name: 'home',
+        path: 'home',
+        component: () => import('@/views/home/home.vue')
+      }
+    ],
     meta: {
       title: '首页'
     }
